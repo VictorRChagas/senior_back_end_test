@@ -53,10 +53,6 @@ public class Venda {
     @JoinColumn(name = "ID_ITEM")
     private Item item;
 
-    public Venda(String descricaoVenda) {
-        this.descricaoVenda = descricaoVenda;
-    }
-
     public Venda(VendaDto vendaDto, Item item) {
         setItem(item);
         setTipoVendaEnum(vendaDto.getTipoVendaEnum());

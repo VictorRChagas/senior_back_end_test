@@ -1,10 +1,7 @@
 package br.com.senior.techicaltest.vendas.pedido;
 
 import br.com.senior.techicaltest.vendas.venda.Venda;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,6 +13,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Builder
 @Table(name = "PEDIDO")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,5 +41,9 @@ public class Pedido {
 
     public void setValorTotalPedido(@NotNull BigDecimal valorTotalPedido) {
         this.valorTotalPedido = Objects.requireNonNull(valorTotalPedido, "Valor total do pedido não deve ser nulo");
+    }
+
+    public void setStatusPedidoEnum(StatusPedidoEnum statusPedidoEnum) {
+        this.statusPedidoEnum = Objects.requireNonNull(statusPedidoEnum, "Status do pedido não pode ser nulo");
     }
 }

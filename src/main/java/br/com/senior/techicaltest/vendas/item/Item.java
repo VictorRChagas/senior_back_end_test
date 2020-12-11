@@ -29,7 +29,7 @@ public class Item {
     @Column(name = "DESCRICAO", length = 120, nullable = false)
     private String descricao;
 
-    @Column(name = "INATIVO")
+    @Column(name = "INATIVO", nullable = false)
     private Boolean inativo;
 
     public void setDescricao(String descricao) {
@@ -37,5 +37,9 @@ public class Item {
             throw new IllegalArgumentException("Descricao não deve ser nula ou vazia");
         }
         this.descricao = descricao;
+    }
+
+    public void setInativo(Boolean inativo) {
+        this.inativo = Objects.requireNonNull(inativo, "Status de atividade do item não pode ser nulo");
     }
 }
