@@ -74,10 +74,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<artifactId>reactor-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.tngtech.archunit</groupId>
 			<artifactId>archunit</artifactId>
 			<version>0.12.0</version>

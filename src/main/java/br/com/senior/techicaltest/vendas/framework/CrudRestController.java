@@ -48,11 +48,18 @@ public abstract class CrudRestController<T, ID, X> {
     @PutMapping("{id}")
     public ResponseEntity<EntityModel<T>> updateById(@PathVariable("id") ID id, @RequestBody X dto) {
         LOGGER.debug("Updating entity");
-        var consumer = getService().findById(id);
-        modelMapper.map(dto, consumer);
-        var entityModel = getRepresentationModelAssembler().toModel(getService().save(consumer));
+        var object = getService().findById(id);
+        postFindOneOnUpdate(object, dto);
+        modelMapper.map(dto, object);
+        var entityModel = getRepresentationModelAssembler().toModel(getService().save(object));
 
         return ResponseEntity.ok(entityModel);
+    }
+
+    protected void postFindOneOnUpdate(T object, X dto) {
+    }
+
+    private void postFindOneOnUpdate(T object) {
     }
 
     @GetMapping
