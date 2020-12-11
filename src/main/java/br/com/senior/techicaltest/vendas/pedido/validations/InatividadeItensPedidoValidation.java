@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Component
-public class InatividadePedidoValidation implements PedidoValidations {
+public class InatividadeItensPedidoValidation implements PedidoValidations {
 
     @Override
     public void validate(Pedido pedido) {

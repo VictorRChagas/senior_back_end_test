@@ -38,7 +38,6 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, UUID> implements 
 
     @Override
     public Boolean approvePedido(String pedidoId) {
-        var toReturn = repository.approveOrder(pedidoId) == 1;
-        return toReturn;
+        return repository.approveOrder(pedidoId) == 1;
     }
 }
