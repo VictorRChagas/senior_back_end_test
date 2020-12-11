@@ -30,7 +30,7 @@ public class Item {
     private String descricao;
 
     @Column(name = "INATIVO", nullable = false)
-    private Boolean inativo;
+    private Boolean inativo = false;
 
     public void setDescricao(String descricao) {
         if (Objects.isNull(descricao) || descricao.isBlank()) {

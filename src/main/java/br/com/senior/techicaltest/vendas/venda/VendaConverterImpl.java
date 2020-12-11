@@ -4,6 +4,8 @@ import br.com.senior.techicaltest.vendas.item.ItemService;
 import br.com.senior.techicaltest.vendas.venda.dto.VendaPersistDto;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class VendaConverterImpl implements VendaConverter {
 
@@ -21,7 +23,7 @@ public class VendaConverterImpl implements VendaConverter {
                 .valorTotalVenda(vendaPersistDto.getValorTotalVenda())
                 .build();
 
-        vendaPersistDto.getItemId().ifPresent(id -> venda.setItem(itemService.findById(id)));
+        vendaPersistDto.getItemId().ifPresent(id -> venda.setItem(itemService.findById(UUID.fromString(id))));
         return venda;
     }
 }

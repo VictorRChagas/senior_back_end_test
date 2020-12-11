@@ -8,6 +8,7 @@ import br.com.senior.techicaltest.vendas.venda.dto.VendaDto;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -30,12 +31,15 @@ public class PedidoConverterImpl implements PedidoConverter {
                 .collect(Collectors.toSet());
 
         pedido.setVendaSet(vendaSet);
+        pedido.getVendaSet().forEach(venda -> venda.setPedido(pedido));
         return pedido;
     }
 
     private Map<String, Item> getAllItemsGroupedById(PedidoPersistDto pedidoPersistDto) {
         var itemIdList = pedidoPersistDto.getVendaDtoSet()
-                .stream().map(VendaDto::getItemId)
+                .stream()
+                .map(VendaDto::getItemId)
+                .map(UUID::fromString)
                 .collect(Collectors.toList());
 
         return itemService.findAllByIdList(itemIdList)

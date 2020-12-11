@@ -52,7 +52,6 @@ public abstract class CrudServiceImpl<T, ID> implements CrudService<T, ID> {
     }
 
     protected void preSave(T entity) {
-
     }
 
     @Override

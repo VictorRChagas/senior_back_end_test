@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@Data
+@Getter
 @Entity
 @Builder
 @Table(name = "PEDIDO")
@@ -35,15 +35,15 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Venda> vendaSet = new HashSet<>();
 
-    public String getId() {
-        return id.toString();
-    }
-
     public void setValorTotalPedido(@NotNull BigDecimal valorTotalPedido) {
         this.valorTotalPedido = Objects.requireNonNull(valorTotalPedido, "Valor total do pedido não deve ser nulo");
     }
 
     public void setStatusPedidoEnum(StatusPedidoEnum statusPedidoEnum) {
         this.statusPedidoEnum = Objects.requireNonNull(statusPedidoEnum, "Status do pedido não pode ser nulo");
+    }
+
+    public void setVendaSet(Set<Venda> vendaSet) {
+        this.vendaSet = vendaSet;
     }
 }

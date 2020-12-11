@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.lang.reflect.ParameterizedType;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component

@@ -9,9 +9,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
-public class PedidoServiceImpl extends CrudServiceImpl<Pedido, String> implements PedidoService {
+public class PedidoServiceImpl extends CrudServiceImpl<Pedido, UUID> implements PedidoService {
 
     private final PedidoRepository repository;
     private final ApplicationEventPublisher applicationEventPublisher;
@@ -25,14 +26,19 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, String> implement
     }
 
     @Override
-    public JpaRepository<Pedido, String> getRepository() {
+    public JpaRepository<Pedido, UUID> getRepository() {
         return repository;
     }
 
     @Override
     protected void preSave(Pedido entity) {
         pedidoValidationsList.forEach(pedidoValidations -> pedidoValidations.validate(entity));
-
         applicationEventPublisher.publishEvent(new PedidoPreSaveEvent(this, entity));
+    }
+
+    @Override
+    public Boolean approvePedido(String pedidoId) {
+        var toReturn = repository.approveOrder(pedidoId) == 1;
+        return toReturn;
     }
 }

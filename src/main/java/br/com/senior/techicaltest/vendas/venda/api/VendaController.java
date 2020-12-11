@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/venda")
-public class VendaController extends CrudRestController<Venda, String, VendaPersistDto> {
+public class VendaController extends CrudRestController<Venda, UUID, VendaPersistDto> {
 
     private final VendaService vendaService;
     private final VendaModelAssembler vendaModelAssembler;
@@ -30,7 +31,7 @@ public class VendaController extends CrudRestController<Venda, String, VendaPers
     }
 
     @Override
-    public CrudService<Venda, String> getService() {
+    public CrudService<Venda, UUID> getService() {
         return vendaService;
     }
 
