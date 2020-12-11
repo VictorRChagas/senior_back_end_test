@@ -3,11 +3,14 @@ package br.com.senior.techicaltest.vendas.pedido;
 import br.com.senior.techicaltest.vendas.item.Item;
 import br.com.senior.techicaltest.vendas.item.ItemService;
 import br.com.senior.techicaltest.vendas.pedido.dto.PedidoPersistDto;
+import br.com.senior.techicaltest.vendas.venda.TipoVendaEnum;
 import br.com.senior.techicaltest.vendas.venda.Venda;
 import br.com.senior.techicaltest.vendas.venda.dto.VendaDto;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -36,14 +39,20 @@ public class PedidoConverterImpl implements PedidoConverter {
     }
 
     private Map<String, Item> getAllItemsGroupedById(PedidoPersistDto pedidoPersistDto) {
-        var itemIdList = pedidoPersistDto.getVendaDtoSet()
-                .stream()
-                .map(VendaDto::getItemId)
-                .map(UUID::fromString)
-                .collect(Collectors.toList());
+        var hasSomeItem = pedidoPersistDto.getVendaDtoSet().stream().anyMatch(vendaDto -> Objects.nonNull(vendaDto.getItemId()));
+        if (hasSomeItem) {
+            var itemIdList = pedidoPersistDto.getVendaDtoSet()
+                    .stream()
+                    .filter(vendaDto -> TipoVendaEnum.PRODUTO.equals(vendaDto.getTipoVendaEnum()))
+                    .map(VendaDto::getItemId)
+                    .map(UUID::fromString)
+                    .collect(Collectors.toList());
 
-        return itemService.findAllByIdList(itemIdList)
-                .stream()
-                .collect(Collectors.toMap(item -> item.getId().toString(), item -> item));
+            return itemService.findAllByIdList(itemIdList)
+                    .stream()
+                    .collect(Collectors.toMap(item -> item.getId().toString(), item -> item));
+        } else {
+            return Collections.emptyMap();
+        }
     }
 }

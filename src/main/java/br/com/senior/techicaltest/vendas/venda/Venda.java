@@ -74,7 +74,7 @@ public class Venda {
     }
 
     public void setValorDesconto(BigDecimal valorDesconto) {
-        if (TipoVendaEnum.SERVICO.equals(tipoVendaEnum)) {
+        if (TipoVendaEnum.SERVICO.equals(tipoVendaEnum) && Objects.nonNull(valorDesconto)) {
             throw new UnsupportedOperationException("Não é possível aplicar descontos nos serviços");
         }
         this.valorDesconto = valorDesconto;

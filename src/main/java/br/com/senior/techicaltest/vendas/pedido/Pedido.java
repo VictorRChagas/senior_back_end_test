@@ -46,4 +46,14 @@ public class Pedido {
     public void setVendaSet(Set<Venda> vendaSet) {
         this.vendaSet = vendaSet;
     }
+
+    /***
+     * used basically for tests
+     */
+    public void setId(UUID id) {
+        if (Objects.nonNull(this.id) && !this.id.equals(id)) {
+            throw new UnsupportedOperationException("Não pode mudar o id do pedido");
+        }
+        this.id = Objects.requireNonNull(id, "Não pode setar o id de um pedido existente para nulo");
+    }
 }

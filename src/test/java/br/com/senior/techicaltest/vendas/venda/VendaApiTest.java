@@ -8,11 +8,16 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.UUID;
+
 import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -27,15 +32,28 @@ public class VendaApiTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /vendaService/1 - Sucess")
+    @DisplayName("GET / Venda /1 - Sucess")
     void findOneSucess() throws Exception {
         var venda = this.getVendaDefault();
-        Mockito.doReturn(vendaService).when(vendaService).findById(any());
-        mockMvc.perform(MockMvcRequestBuilders.get("/venda/{id}", 1))
+        Mockito.doReturn(venda).when(vendaService).findById(any());
+        mockMvc.perform(MockMvcRequestBuilders.get("/venda/{id}", venda.getId()))
                 .andExpect(status().isOk());
     }
 
+    @Test
+    @DisplayName("GET / Venda / - Sucess")
+    void findAllSucess() throws Exception {
+        var consumerList = vendaService.findAll(PageRequest.of(1, 2));
+        Mockito.when(vendaService.findAll(PageRequest.of(1, 2))).thenReturn(consumerList);
+        Mockito.doReturn(consumerList).when(vendaService).findAll(PageRequest.of(1, 2));
+        mockMvc.perform(MockMvcRequestBuilders.get("/item"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaTypes.HAL_JSON_VALUE));
+    }
+
     private Venda getVendaDefault() {
-        return new Venda();
+        var venda = new Venda();
+        venda.setId(UUID.randomUUID());
+        return venda;
     }
 }

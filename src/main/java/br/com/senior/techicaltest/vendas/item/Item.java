@@ -32,6 +32,10 @@ public class Item {
     @Column(name = "INATIVO", nullable = false)
     private Boolean inativo = false;
 
+    public Item(@NotBlank @Size(max = 120) String descricao) {
+        this.descricao = descricao;
+    }
+
     public void setDescricao(String descricao) {
         if (Objects.isNull(descricao) || descricao.isBlank()) {
             throw new IllegalArgumentException("Descricao não deve ser nula ou vazia");
