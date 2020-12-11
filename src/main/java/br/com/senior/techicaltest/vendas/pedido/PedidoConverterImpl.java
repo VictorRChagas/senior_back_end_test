@@ -3,6 +3,7 @@ package br.com.senior.techicaltest.vendas.pedido;
 import br.com.senior.techicaltest.vendas.item.Item;
 import br.com.senior.techicaltest.vendas.item.ItemService;
 import br.com.senior.techicaltest.vendas.pedido.dto.PedidoPersistDto;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.venda.TipoVendaEnum;
 import br.com.senior.techicaltest.vendas.venda.Venda;
 import br.com.senior.techicaltest.vendas.venda.dto.VendaDto;

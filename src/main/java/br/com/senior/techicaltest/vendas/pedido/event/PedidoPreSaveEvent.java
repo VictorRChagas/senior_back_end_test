@@ -1,6 +1,6 @@
 package br.com.senior.techicaltest.vendas.pedido.event;
 
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 

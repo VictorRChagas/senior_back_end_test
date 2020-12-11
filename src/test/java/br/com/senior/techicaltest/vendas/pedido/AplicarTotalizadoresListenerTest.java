@@ -2,6 +2,7 @@ package br.com.senior.techicaltest.vendas.pedido;
 
 import br.com.senior.techicaltest.vendas.pedido.event.PedidoPreSaveEvent;
 import br.com.senior.techicaltest.vendas.pedido.listeners.AplicarTotalizadoresPreSaveListener;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.venda.TipoVendaEnum;
 import br.com.senior.techicaltest.vendas.venda.Venda;
 import org.junit.jupiter.api.Assertions;

@@ -1,6 +1,6 @@
 package br.com.senior.techicaltest.vendas.pedido.api;
 
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;

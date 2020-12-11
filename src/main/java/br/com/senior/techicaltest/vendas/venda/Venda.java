@@ -1,7 +1,7 @@
 package br.com.senior.techicaltest.vendas.venda;
 
 import br.com.senior.techicaltest.vendas.item.Item;
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.venda.dto.VendaDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;

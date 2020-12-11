@@ -2,10 +2,10 @@ package br.com.senior.techicaltest.vendas.pedido.api;
 
 import br.com.senior.techicaltest.vendas.framework.CrudRestController;
 import br.com.senior.techicaltest.vendas.framework.CrudService;
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
 import br.com.senior.techicaltest.vendas.pedido.PedidoConverter;
 import br.com.senior.techicaltest.vendas.pedido.PedidoService;
 import br.com.senior.techicaltest.vendas.pedido.dto.PedidoPersistDto;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.hateoas.EntityModel;

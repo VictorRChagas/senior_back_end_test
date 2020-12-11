@@ -1,6 +1,7 @@
 package br.com.senior.techicaltest.vendas.pedido;
 
 import br.com.senior.techicaltest.vendas.pedido.dto.PedidoPersistDto;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.util.JsonUtil;
 import br.com.senior.techicaltest.vendas.venda.TipoVendaEnum;
 import br.com.senior.techicaltest.vendas.venda.dto.VendaDto;

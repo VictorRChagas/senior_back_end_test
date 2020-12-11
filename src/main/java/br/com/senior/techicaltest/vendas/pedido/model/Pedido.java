@@ -1,5 +1,6 @@
-package br.com.senior.techicaltest.vendas.pedido;
+package br.com.senior.techicaltest.vendas.pedido.model;
 
+import br.com.senior.techicaltest.vendas.pedido.StatusPedidoEnum;
 import br.com.senior.techicaltest.vendas.venda.Venda;
 import lombok.*;
 

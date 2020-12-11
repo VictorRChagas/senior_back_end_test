@@ -1,7 +1,7 @@
 package br.com.senior.techicaltest.vendas.pedido.validations;
 
 import br.com.senior.techicaltest.vendas.item.Item;
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.pedido.StatusPedidoEnum;
 import br.com.senior.techicaltest.vendas.venda.TipoVendaEnum;
 import br.com.senior.techicaltest.vendas.venda.Venda;

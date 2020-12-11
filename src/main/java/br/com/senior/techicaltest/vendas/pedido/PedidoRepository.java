@@ -1,5 +1,6 @@
 package br.com.senior.techicaltest.vendas.pedido;
 
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

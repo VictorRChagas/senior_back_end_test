@@ -1,5 +1,6 @@
 package br.com.senior.techicaltest.vendas.pedido;
 
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

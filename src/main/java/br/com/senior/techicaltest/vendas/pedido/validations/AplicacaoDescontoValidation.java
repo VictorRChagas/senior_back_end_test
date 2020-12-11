@@ -1,6 +1,6 @@
 package br.com.senior.techicaltest.vendas.pedido.validations;
 
-import br.com.senior.techicaltest.vendas.pedido.Pedido;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.pedido.PedidoService;
 import br.com.senior.techicaltest.vendas.venda.Venda;
 import org.springframework.stereotype.Component;

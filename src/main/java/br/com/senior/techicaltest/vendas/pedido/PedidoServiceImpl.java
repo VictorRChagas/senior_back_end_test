@@ -2,6 +2,7 @@ package br.com.senior.techicaltest.vendas.pedido;
 
 import br.com.senior.techicaltest.vendas.framework.CrudServiceImpl;
 import br.com.senior.techicaltest.vendas.pedido.event.PedidoPreSaveEvent;
+import br.com.senior.techicaltest.vendas.pedido.model.Pedido;
 import br.com.senior.techicaltest.vendas.pedido.validations.PedidoValidations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
